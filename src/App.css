@@ -1,38 +1,197 @@
-.App {
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body,html{
+  position: relative;
+  /* overflow-x:hidden; */
+ 
+  
+}
+.hiddeny{
+  overflow-y: hidden;
+}
+/* ////---------FOOTER */
+.contentbody{
+  margin-top: 160px;
+}
+ .introduce {
+  background-color: white;
+  margin-top: 20%;
+  height: 500px;
   text-align: center;
+
+ 
+}
+p{
+  font-size: large;
+  margin: 0 20%;
+}
+.titlethank{
+  background: linear-gradient( #cc0303 ,#000000);
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: 'Delius Swash Caps', cursive;
+  width: 100%;
+}
+.formattext{
+  position: absolute;
+  width: 900px;
+  height: 300px;
+  left: 20%;
+  top:30%;
+  text-align: center;
+  margin:20px auto;
+}
+.thankyou{
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(5);
+  background-image:url("https://thuthuatnhanh.com/wp-content/uploads/2021/11/Hinh-anh-cuon-sach-mo-ra-doc-dao-an-tuong-day-tam-trang.jpg");
+}
+.sendquestion {
+  height: 500px;
+  background-color: white;
+} 
+
+.formsend{
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 15px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn1 {
+  margin: 10px auto;
+  width: 150px;
+  height: 50px;
+  color: rgb(7, 7, 7);
+  border-radius: 4%;
+  background: #CEF6F5;
+  border: 1px solid #E0F8F7;
+}
+.btn1:hover {
+   background: #81F7F3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input{
+  background: white;
+  border: 1px solid rgb(239, 239, 243);
+  color: rgb(14, 13, 13);
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+textarea{
+  resize: none;
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(218, 60, 60);
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  outline: none;
+}
+
+
+
+/* /SHOP */
+.containershop{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 10px auto ;
+  background-color: #EFFBFB;
+  padding:10px;
+}
+select{
+  border-radius: 4%;
+  border: 1px solid #E0F8F7;
+  width: 180px;
+  height: 50px;
+  margin: 0 5px;
+  text-align: center;
+  outline: none;
+}
+
+.advimage{
+  width: 80%;
+  height: 300px;
+  margin-left: 10%;
+  margin-top: 200px;
+}
+/* ?????????sẻarch */
+.search{
+  width: 350px;
+  height: 50px;
+  position: relative;
+  border: solid 1px #CEF6F5;
+  display: flex;
+}
+.inputsearch{
+  width:100%;
+  height: 100%;
+  margin: 0 auto;
+  color:rgb(10, 10, 10);
+left: 0;
+padding-left: 10px;
+  position: relative;
+}
+.iconsearch{
+  position: absolute;
+  color: #81F7F3;
+  width: 2.2em;
+  height: 3em;
+  cursor: pointer;
+  right: 0;
+
+
+}
+/* ...........SIGNIN */
+.sign-in{
+  margin-top: 180px;
+  box-shadow: 0 0 8px #7be2f7;
+  width: 50%;
+  margin-left: 25%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 15px;
+}
+.input-signin{
+  margin-top: 20px;
+  padding-left: 20px;
+  font-weight: 700;
+  width: 80%;
+  height: 50px;
+  border: solid 1px #CEF6F5;
+  display: flex;
+}
+
+  .btn-sign {
+    /* outline: none; */
+    background-color: #ed1717;
+    width: auto;
+    border-radius: 20px;
+    padding: 0 20px;
+    border: none;
+    color: white;
+    margin: 20px auto;
+}
+.btn:hover{
+  cursor: pointer;
+  background-color: #eb2125;
   color: white;
+  font-size: 1.1rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -1,0 +1,62 @@
+/* NAVBAR+++++++++ */
+.navbar{
+    width: 100%;
+    height: 150px;
+    background-color: white ;
+    box-shadow: 0 0 10px wheat;
+    position: fixed;
+    z-index: 999;
+    top:0;
+   }
+   a{
+     font-family: 'Delius Swash Caps', cursive;
+     color:rgb(7, 7, 7);
+     font-weight: 600;
+     text-decoration: none;
+   }
+   
+   
+   button{
+     width: 50px;
+     height: 50px;
+   }
+   .navaccount{
+    width: 1.5em;
+    height: 1.5em;
+   }
+   .navcart{
+    width: 1.5em;
+    height: 1.5em;
+    position: relative;
+    /* border: 1px red solid; */
+    top:15%;
+   }
+   .showquality{
+    text-align: center;
+    position: absolute; 
+    border-radius: 50%;
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    color: white;
+    font-size: 0.7rem;
+    top:2%;
+    right: 5%;
+   }
+   .cart{
+    position: relative;
+    width: 2.2em;
+    height: 2.5em;
+    /* border: 2px solid blue; */
+   }
+   .logo{
+      border-radius: 50%;
+   }
+   .logoimage{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+   }
+   .stylenavbar{
+    
+   }
