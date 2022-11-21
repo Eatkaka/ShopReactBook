@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ApiListBook from "../FakeApi/ApiListBook";
 import { getCategory } from "../FakeApi/configApi";
 import BookCard from "../Components/BookStore/BookCard";
 import { BiSearch } from "react-icons/bi";
 import freeship from '../asset/image/freeship.png'
-function ShopBookStore() {
-  const [data, setData] = useState(ApiListBook.books);
+import PaginationComponent from "../Components/Pagination/PaginationComponent";
 
+function ShopBookStore() {
+  const [data, setData] = useState([...ApiListBook.books]);
   const resultDataCategory = getCategory();
- 
+  const [currentPage, setCurrentPage] = useState(1)
+  const [perPage, setPerPage] = useState(10)
+  const lastIndex = currentPage * perPage;
+  const firstIndex = lastIndex - perPage;
+
   const handleCategory = (e) => {
     let valueCategory = e.target.value;
     let resultDataCategory;
@@ -27,14 +32,22 @@ function ShopBookStore() {
     } else if (valueCategory === "Danh mục sách") {
       resultDataCategory = ApiListBook.books;
     }
-    setData(resultDataCategory);
-  };
-  
+    setData(resultDataCategory); 
+  }
+ const handleLike = () =>{
+  let apiBookCopy = [...ApiListBook.books];
+     
+   let  resultBookLike = apiBookCopy.sort(function(a,b){
+      return b.like - a.like;
+     })
+     setData(resultBookLike.slice(0,10))
+ }
+
   const handlePrice = (e) => {
     let valuePrice = e.target.value;
      let apiBookCopy = [...ApiListBook.books];
      console.log(apiBookCopy)
-     let resultDataPrice
+     let resultDataPrice;
     if (valuePrice === "0") {
         resultDataPrice = apiBookCopy.sort(function (a, b) {
         return a.salePrice - b.salePrice;
@@ -84,7 +97,7 @@ function ShopBookStore() {
             Giá : Từ cao đến thấp
           </option>
         </select>
-        <button className="btn1">Top Yêu Thích</button>
+        <button className="btn1" onClick={handleLike}>Top Yêu Thích</button>
         <button className="btn1">Mới Nhất</button>
 
         <div className="search">
@@ -99,15 +112,23 @@ function ShopBookStore() {
       </div>
       <div className="contentbook">
         <div className="listitembook">
-          {data?.length === 0 ? (
+          {data?.length === 0 ? 
+          (
             <div>Không Có Quyển Sách Này</div>
           ) : (
-            data?.map((item, index) => {
+            data?.slice(firstIndex,lastIndex).map((item, index) => {
               return <BookCard item={item} key={index} />;
             })
           )}
         </div>
       </div>
+      <PaginationComponent
+      data={data}
+      perPage={perPage}
+       currentPage={currentPage}
+       setCurrentPage={setCurrentPage}
+      
+      />
     </>
   );
 }

@@ -14,25 +14,31 @@ import BookDetail from './Components/BookStore/BookDetail';
 import CartBookStore from './pages/CartBookStore';
 import SignInBookStore from './pages/SignInBookStore';
 import SignUpBookStore from './pages/SignUpBookStore';
-// import ApiListBook from './FakeApi/ApiListBook';
-// import { useEffect, useState } from 'react';
-function App() {
- 
-  
+import WishListBookStore from './pages/WishListBookStore';
+
+
+function App() {  
   return (
     <div className="App">
       <div className="hiddeny">
      <BrowserRouter>
      <NavbarBook />
     <Routes>
-     
-      <Route path="/" element={<HomeBookStore/>}></Route>
+      
+      <Route exact path="/" 
+      render={()=>{
+        return localStorage.getItem("accessToken")?<HomeBookStore/>:<SignInBookStore/>
+      }}
+      element={<HomeBookStore/>}/>
       <Route path="/about-us" element={<AboutUs/>}></Route>
       <Route path='/shop' element={<ShopBookStore />}></Route>
       <Route path="/shop/:id" element={<BookDetail/>}></Route>
       <Route path="/cart" element={<CartBookStore/>}></Route>
+      <Route path="/wish-list" element={<WishListBookStore/>}></Route>
       <Route path='/signin' element={<SignInBookStore/>}></Route>
       <Route path='/signup' element={<SignUpBookStore/>}></Route>
+
+
     </Routes>
     <FooterStore/>
   </BrowserRouter>,

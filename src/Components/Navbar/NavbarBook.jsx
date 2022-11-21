@@ -3,13 +3,18 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import './style.css'
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BsCart4 } from 'react-icons/bs';
 import { MdAccountCircle } from 'react-icons/md';
 import { useSelector } from "react-redux";
 import logo from '../../asset/image/logo.png'
-export default function NavbarBook() {
 
+export default function NavbarBook() {
+  const navigate = useNavigate()
+  const logout = () =>{
+    localStorage.removeItem("accessToken")
+    navigate("/signin")
+  }
   const totalQuantity = useSelector( state => state.cart.totalQuantity)
   return (
       <Navbar className="navbar navbar-expand-lg navbar-light">
@@ -31,12 +36,14 @@ export default function NavbarBook() {
             <Link to="/cart">GIỎ HÀNG</Link>
           </Nav>
           <Nav className="stylenavbar " activeclassname="active">
-            <Link to="/like">SÁCH YÊU THÍCH</Link>
+            <Link to="/wish-list">SÁCH YÊU THÍCH</Link>
           </Nav>
           <Nav className="stylenavbar " activeclassname="active">
-            <Link to="/signin">
+            
               <MdAccountCircle className="navaccount"/>
-            </Link>
+              <div className="login"><Link to="/signin"><span>login</span></Link>
+              <span onClick={logout}>logout</span></div>
+            
           </Nav>
           <Nav className="stylenavbar " activeclassname="active">
             <Link to="/cart">

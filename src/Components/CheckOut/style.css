@@ -68,11 +68,13 @@ li {
 .image-cart {
   width: 150px;
   height: 200px;
+  cursor: pointer;
 }
 .icon-trash{
  cursor: pointer;
  width: 1.3em;
  height: 1.3em;
+ color: red;
 }
 .btncountcart{
   border-style: none;

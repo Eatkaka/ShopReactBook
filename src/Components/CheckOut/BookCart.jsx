@@ -3,21 +3,24 @@ import "./style.css";
 import { cartActions } from "../../redux/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { BsTrash } from "react-icons/bs";
+import { ToastContainer,toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 function BookCart() {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-   console.log("cartitems", cartItems);
-  const [totalPrice,setTotalPrice] = useState(0)
-  // for(let i =1 ;i<=cartItems.length;i++){
-  //   let a=[];
-  //   a.push(cartItems[i].salePrice)
-  //   console.log("a",a)
-  //   console.log("citsp",cartItems[i].salePrice)
-  // }
+  
+  const {totalAmount,cartItems} = useSelector((state)=>state.cart)
+   const [totalPrice,setTotalPrice] = useState(1)
+  const dispatch = useDispatch();
+  useEffect(() => {
+   dispatch(cartActions.getCartTotal());
+  }, [cartItems]);
+  
+ 
   return (
     <>
       <div className="container-cart">
         <h3>GIỎ HÀNG CỦA BẠN</h3>
         <ul className="responsive-table">
+        <ToastContainer/>
           {cartItems.length === 0 ? (
             <h3>Không có sản phẩm trong giỏ hàng của bạn</h3>
           ) : (<>
@@ -35,10 +38,14 @@ function BookCart() {
               item={item} 
              key={index}
              totalPrice={totalPrice}
+           
               setTotalPrice={setTotalPrice}/>
           )
           )}
-              <h3 >Tổng tiền :{totalPrice}</h3>
+              <h3 >Tổng tiền :{totalAmount.toLocaleString("it-IT", {
+          style: "currency",
+          currency: "VND",
+        })}</h3>
             </>
           )}
         
@@ -49,81 +56,52 @@ function BookCart() {
     </>
   );
 };
-const CartItemBook = ({item,setTotalPrice,cartItems, totalPrice}) =>{
+const CartItemBook = ({item}) =>{
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const deleteBook = () =>{
+    toast("Đã Xóa Sản Phẩm")
     dispatch(cartActions.deleteItem(item.id))
-    alert("Đã xóa sản phẩm")
-  }
-  const [quantityCart, setQuantityCart] = useState(item.quantity);
-  const [total, setTotal] = useState(item.salePrice*item.quantity);
-  useEffect(() => {
-    const checkOut = () =>{
-        let ttPrice = cartItems.reduce(
-          (prev)=>
-          prev + (total),0          
-        )
-        setTotalPrice(ttPrice)
-       console.log(total)
-    }
-    checkOut();
    
-  }, [total])
- 
-  
-  const countDown = () =>{
-    if(quantityCart>0){
-     
-      setQuantityCart(quantityCart-1);
-      setTotal(total-item.salePrice)
-    }
-    else{
-      setQuantityCart(0)
-    }
   }
-  const countUp = () =>{
-    
-    if(quantityCart<item.qtty)
-    {
-      setQuantityCart(quantityCart+1);
-      console.log("total",total)
-      console.log("quantitycart",quantityCart)
-       setTotal(total+item.salePrice)
-    }
-    
-    else{
-      setQuantityCart(quantityCart)
-    }
+  const handleDetail = () =>{
+     navigate(`/shop/${item.id}`)
   }
-  
   return (
     <>
       <li className="table-row">
-        <div className="col col-1">{item.titleBook}</div>
+        <div className="col col-1"
+        style={{cursor:"pointer"}}
+        onClick={handleDetail}>{item.titleBook}</div>
         <div className="col col-6">
           {" "}
           <img
             className="image-cart"
             src={item.imgUrl}
+            onClick={handleDetail}
             alt="imagecart"
           />{" "}
         </div>
         <div className="col col-2">
-          {item.salePrice}
+          {item.salePrice.toLocaleString("it-IT", {
+          style: "currency",
+          currency: "VND",
+        })}
         </div>
         <div className="col col-3">
         <button 
-                    disabled={quantityCart===1}
                     className="btncountcart"
-                     onClick={countDown}>-</button>
-          {quantityCart}
+                    disabled={item.quantity===1}
+                    onClick = {()=>dispatch(cartActions.countDown(item.id))}
+                    >-</button>
+          {item.quantity}
           <button 
-                    disabled={quantityCart===item.qtty}
+                    disabled={item.quantity===item.qtty}
                     className="btncountcart" 
-                    onClick={countUp}>+</button>
+                    onClick={()=>dispatch(cartActions.countUp(item.id))}>+</button>
         </div>
         <div className="col col-4" >
-          {total}
+    
         </div>
         <div className="col col-5"  >
           <BsTrash onClick={deleteBook} className="icon-trash" />

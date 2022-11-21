@@ -1,0 +1,38 @@
+
+   .pagination-custom {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-page{
+    margin: 3px ;
+    border-radius: 50%;
+    border: none;
+  }
+
+  .btn-direc{
+    color: white;
+  background-color:#FFFFFF;
+    width: 8%;
+    
+  }.active {
+  outline: none;
+  background-color: 	#FF3030;
+   color:white;
+   border-radius: 50%;
+   border-style: none;
+   margin: 5px;
+}
+.noactive{
+  outline: none;
+  border-radius: 50%;
+  background-color:#FFFFCC;
+  color: wheat;
+  border-style: none;
+  margin: 5px;
+}

@@ -1,144 +1,160 @@
 /* /PRODUCT/ */
-.contentproduct{
-    width: 100%;
-    height: 1000px;
-    display: flex;
-  }
-  h3{
-    font-family: 'Delius Swash Caps', cursive;
-    color:rgb(7, 7, 7);
-    font-weight: 600;
-    text-align: center;
-    margin: 100px;
-    font-size: 3rem;
-  }
-   .listbook{
-    display: flex;
-    flex-direction: column;
-    font-size: 1.3rem;
-  } 
-  .listitembook{
-    display: flex;
-    flex-wrap: wrap;
-    width: 85%;
-    margin: 0px auto;
-     /* border:3px solid rgb(155, 34, 108);  */
-  }
-  .imagebook{
-    width: 12rem;
-    height: 17rem;
-    border-radius: 0%;
-    box-shadow: 5px 2px rgb(184, 181, 181);
-  }
-  .cardbook{
-    height: 100%;
-     /* border: 1px solid red;    */
-    margin: 20px auto;
-    cursor: pointer;
+.contentproduct {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+}
+h3 {
+  font-family: "Delius Swash Caps", cursive;
+  color: rgb(7, 7, 7);
+  font-weight: 600;
+  text-align: center;
+  margin: 100px;
+  font-size: 3rem;
+}
+.listbook {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+.listitembook {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0px auto;
+}
+.imagebook {
+  width: 12rem;
+  height: 17rem;
+  box-shadow: 5px 2px rgb(184, 181, 181);
+  align-items: center;
+}
+.imghot {
+  position: absolute;
+  left: 0;
+  width: 4rem;
+  border: none;
+  outline: none;
+}
+.hot {
+  width: 4rem;
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+}
+.cardbook {
+  position: relative;
+  height: 24rem;
+  width: 12.3rem;
+  /* border: 1px solid red;     */
+  margin: 20px auto;
+  cursor: pointer;
+  max-height: 24rem;
+}
+.showcart {
+  bottom: 0%;
+  position: absolute;
+  width: 12.3rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: white;
+  background-color: rgb(243, 40, 40);
+  visibility: hidden;
+  padding: 0.5rem;
+}
+.cardbook:hover .showcart {
+  visibility: visible;
+}
+.cardbook:hover {
+  /* border: 1px red solid; */
+  box-shadow: 0px 0px 15px red;
+}
+.cardtitle {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(49, 49, 49);
+  padding: 10px 0px;
+}
 
-  }
-  .showcart{
-    font-size: 0.9rem;
-    text-align: center;
-    color: white;
-    background-color: rgb(243, 40, 40);
-    display: block;
-   opacity: 0;
-  }
-  .cardbook:hover .showcart{
-   display: block;
-   opacity: 1;
+.cardtitle:hover {
+  font-weight: 900;
+  color: black;
+  font-size: 1.1rem;
+}
+.cardprice {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+}
+/* =============BOOKDETAIL CSS  */
+.bookdetail {
+  margin-top: 160px;
+  display: flex;
+  width: 80%;
+}
+.imagebookdetail {
+  width: 450px;
+  height: 500px;
+  margin-left: 10%;
+  box-shadow: 10px 8px 4px rgb(192, 193, 194);
+  flex: 1;
+}
 
-  }
-  .cardbook:hover{
-    border: 1px red solid;
-  }
-  .cardtitle{
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    color: rgb(49, 49, 49);
-    padding: 10px 0px ;
-    
-  }
-  
-  .cardtitle:hover{
-    font-weight: 900;
-    color:black;
-    font-size: 1.1rem;
-  }
-  .subcard{
-    width: 12rem;
-    height: 100%;
-  }
-  .cardprice{
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  /* =============BOOKDETAIL CSS  */
-  .bookdetail{
-    margin-top: 160px;
-    display:flex;
-    width: 80%;
-    
-  }
-  .imagebookdetail{
-    width: 450px;
-    height: 500px;
-    margin-left: 10%;
-    box-shadow: 10px 8px 4px rgb(192, 193, 194);
-    flex:1;
-  }
+.booknamedetail {
+  font-family: "Delius Swash Caps", cursive;
+  font-size: 2.3rem;
+  font-weight: 700;
+  padding: 10px 0px;
+}
+.detailright {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 5%;
+  font-weight: 600;
+  flex: 2;
+  font-size: 1rem;
+}
 
-  .booknamedetail{
-    font-family: 'Delius Swash Caps', cursive;
-    font-size: 2.3rem;
-    font-weight: 700;
-    padding: 10px 0px;
-  }
-  .detailright{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    padding-left:5%;
-    font-weight: 600;
-    flex:2;
-    font-size: 1rem;
-   
-  }
-    
-  .bookpricedetail{
-    padding: 10px 0;
-  }
-  .addcart{
-    width: 30%;
-  
-    outline: none;
-    background-color:#ed1717;
-    border-style: none;
-    color: white;
-    font-weight: 800;
+.bookpricedetail {
+  padding: 10px 0;
+}
+.addcart {
+  width: 35%;
+  outline: none;
+  background-color: #ed1717;
+  border-style: none;
+  color: white;
+  font-weight: 800;
+}
+.bookpricedetail {
+  color: red;
+  font-size: 1rem;
+}
+.btncount {
+  border-style: none;
+  margin: 0 10px;
+  font-size: 1.2em;
+  background-color: white;
+}
+.btncount:hover {
+  background-color: rgb(243, 243, 205);
+}
 
 
-  }
-  .bookpricedetail{
-    color: red;
-    font-size: 1rem;
-  }
-  .btncount{
-    border-style: none;
-    margin: 0 10px;
-    font-size: 1.2em;
-    background-color: white;
-  }
-  .btncount:hover{
-    background-color: rgb(243, 243, 205);
-  }
-  .heart-wishlist{
-    font-size: 2em;
-    cursor: pointer;
-  }
-  .heart-wishlist:focus,.heart-wishlist:hover{
-    color: red;
-  }
+.active-heart {
+  width: "3em";
+  height: "3em";
+  cursor: "pointer";
+  color:"#FF00000";
+  background-color: #ed1717;
+  z-index: 999;
+}
+.noactive-heart {
+  width: "3em";
+  height: "3em";
+  cursor: "pointer";
+  color:"#3333333";
+  border:#ed1717 solid 1px;
+
+}
