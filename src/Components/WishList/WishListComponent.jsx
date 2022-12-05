@@ -18,9 +18,10 @@ function WishListComponent() {
         ) : (
           <>
             <li className="table-header">
-              <div className="col col-6">Hình Ảnh</div>
-              <div className="col col-2">Giá Sách</div>
-              <div className="col col-5">Xóa Sản Phẩm</div>
+            <div className="col ">Tên Sách</div>
+              <div className="col ">Hình Ảnh</div>
+              <div className="col ">Giá Sách</div>
+              <div className="col ">Xóa Sản Phẩm</div>
             </li>
 
             {BookWL.map((item, index) => (
@@ -48,12 +49,12 @@ const BookWLItem = ({ item }) => {
       <ToastContainer/>
       <div
         onClick={routerShop}
-        className="col col-1"
+        className="col "
         style={{ cursor: "pointer" }}
       >
         {item.titleBook}
       </div>
-      <div className="col col-6">
+      <div className="col ">
         {" "}
         <img
           onClick={routerShop}
@@ -62,8 +63,11 @@ const BookWLItem = ({ item }) => {
           alt="imagecart"
         />{" "}
       </div>
-      <div className="col col-2">{item.salePrice}</div>
-      <div className="col col-5">
+      <div className="col ">{item.salePrice.toLocaleString("it-IT", {
+              style: "currency",
+              currency: "VND",
+            })}</div>
+      <div className="col ">
         <BsTrash onClick={deleteBook} className="icon-trash" />
       </div>
     </li>

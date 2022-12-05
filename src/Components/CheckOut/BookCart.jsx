@@ -35,7 +35,7 @@ function BookCart() {
             {cartItems.map((item, index) => (
              <CartItemBook
              cartItems={cartItems}
-              item={item} 
+             item={item} 
              key={index}
              totalPrice={totalPrice}
            
@@ -57,6 +57,7 @@ function BookCart() {
   );
 };
 const CartItemBook = ({item}) =>{
+  let sumMoney = item.quantity*item.salePrice
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const deleteBook = () =>{
@@ -87,6 +88,7 @@ const CartItemBook = ({item}) =>{
           style: "currency",
           currency: "VND",
         })}
+        {/* {item.salePrice} */}
         </div>
         <div className="col col-3">
         <button 
@@ -101,7 +103,10 @@ const CartItemBook = ({item}) =>{
                     onClick={()=>dispatch(cartActions.countUp(item.id))}>+</button>
         </div>
         <div className="col col-4" >
-    
+          {sumMoney.toLocaleString("it-IT", {
+          style: "currency",
+          currency: "VND",
+        })}
         </div>
         <div className="col col-5"  >
           <BsTrash onClick={deleteBook} className="icon-trash" />

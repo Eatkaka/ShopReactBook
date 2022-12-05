@@ -1,16 +1,13 @@
-/* eslint-disable eqeqeq */
 import NavbarBook from "../Navbar/NavbarBook";
 import { useParams } from "react-router-dom";
 import ApiListBook from "../../FakeApi/ApiListBook";
-import { AiFillHeart } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/cartSlice";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { wlActions } from "../../redux/wishListSlice";
-import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import HeartWishList from "../WishList/HeartWishList";
 function Book() {
@@ -48,39 +45,21 @@ function Book() {
     };
     dispatch(cartActions.addItem(newBookCart));
   };
-  const [isColor, setIsColor] = useState(false);
-  // const [rsColor,setRsColor]=useState("#333333")
- 
+  
 const changeWishLish = () => {
-  setIsColor(!isColor)  
-  // console.log("first",isColor)
-  if(isColor){
     const newWL = {
-      isColor,   
-      id,
-      titleBook,
-      imgUrl,
-      salePrice,
-    };
-    toast("Đã Xóa Khỏi Danh Sách Yêu Thích")
-    // console.log("01",newWL)
-    dispatch(wlActions.changeWL(newWL));
-  } else{
-    const newWL = {
+      
       rsColor:"#FF0000",
-      isColor,
       id,
       titleBook,
       imgUrl,
       salePrice,
     };
-    toast("Đã Thêm Vào Danh Sách Yêu Thích")
-    // console.log(newWL)
-    dispatch(wlActions.changeWL(newWL));
-  }
+    dispatch(wlActions.changeWL(newWL));     
+}
 
  
-};
+
    return (
     <>
       <NavbarBook />

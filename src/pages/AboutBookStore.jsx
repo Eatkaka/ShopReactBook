@@ -31,22 +31,25 @@ export default function AboutBookStore() {
           <div className="nameemail">
           <label>
             NAME:
-            <input placeholder="Name" type="text" name="name" />
+            <input placeholder="Name" type="text" name="name"
+            className="search" />
           </label>
           <label style={{marginLeft:"20px"}}>
             EMAIL:
             <input placeholder="Email" 
-            type="text" name="name"  />
+            type="text" name="name"  className="search"/>
           </label>
           </div>
           <label>
             TITLE:
             <input placeholder="Title"
+            className="search"
             type="text" name="name" />
           </label>
           <textarea
             className="message"
             placeholder="You write"
+           
             rows="10"
             cols="10"
           />

@@ -40,9 +40,9 @@ export default function NavbarBook() {
           </Nav>
           <Nav className="stylenavbar " activeclassname="active">
             
-              <MdAccountCircle className="navaccount"/>
-              <div className="login"><Link to="/signin"><span>login</span></Link>
-              <span onClick={logout}>logout</span></div>
+          <Link to="/signin"> <MdAccountCircle className="navaccount"/></Link>
+              {/* <div className="login"><Link to="/signin"><span>login</span></Link>
+              <span onClick={logout}>logout</span></div> */}
             
           </Nav>
           <Nav className="stylenavbar " activeclassname="active">

@@ -22,26 +22,26 @@
     .contentinput{
       display: inline-block;
       position: relative;
-      width: 80%;
-      height: 50px;
+      width: 40%;
+      height:15%;
       color: white;
     }
     .send{
       position: absolute;
       right: 0px;
-      top:10px;
       flex:3;
-      height: 50px;
+      height: 100%;
       border: none;
       background-color: teal;
       color: white;
     }
     .inputyourmail{
-      height: 50px;
-      width: 500px;
-      top:0;
-      flex: 7;
+      width:100%;
+      height: 100%;
+      margin: 0 auto;
+      color:rgb(3, 3, 3);
+      left: 0;
       padding-left: 10px;
-      color:white ;
-      position: absolute;
+      position: relative;
+      border: 1px solid rgb(143, 185, 248);
     }

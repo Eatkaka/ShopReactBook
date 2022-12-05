@@ -14,7 +14,7 @@
   
   .textbanner{
     flex:1;
-    border: 1px solid rgb(46, 46, 45);
+     border: 1px solid rgb(17, 162, 206); 
     position: relative;
     text-align: center;   
   }
